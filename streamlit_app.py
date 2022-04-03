@@ -1,4 +1,4 @@
--- Imports
+ Imports
 
 import streamlit as st
 import pandas as pd
@@ -8,7 +8,7 @@ import numpy as np
 pd.options.mode.chained_assignment = None
 pd.set_option("display.max_columns", None)
 
--- Streamlit UI/UX 
+-- Streamlit
 
 st.title("Yoyo matchs app")
 
