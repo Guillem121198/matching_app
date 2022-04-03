@@ -25,10 +25,6 @@ players_22 = pd.read_csv(url, sep=',')
 
 st.write(players_22)
 
-url_3 = 'https://raw.githubusercontent.com/Guillem121198/matching_app/main/yoyo_match_results_test_1.csv'
-match_table_test = pd.read_csv(url_3)
-st.write(match_table_test)
-
 url_2 = 'https://raw.githubusercontent.com/Guillem121198/matching_app/main/yoyo_match_results.xlsx'
 match_table = pd.read_excel(url_2)
 
