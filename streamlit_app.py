@@ -1,14 +1,11 @@
- -- Imports
-
+# Imports 
 import streamlit as st
 import pandas as pd
 import numpy as np
 
--- Pandas
 pd.options.mode.chained_assignment = None
 pd.set_option("display.max_columns", None)
 
--- Streamlit
 
 st.title("Yoyo matchs app")
 
@@ -20,7 +17,6 @@ st.write(pd.DataFrame({
     'second column': [10, 20, 30, 40]
 }))
 
--- Python
 
 url = 'https://raw.githubusercontent.com/Guillem121198/machine_learning/main/players_22.csv'
 players_22 = pd.read_csv(url, sep=',')
