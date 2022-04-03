@@ -30,3 +30,9 @@ match_table = pd.read_excel(url_2)
 
 st.write(match_table)
 
+url = 'https://raw.githubusercontent.com/Guillem121198/matching_app/main/yoyo_match_results_test_1.csv'
+match_table_test = pd.read_csv(url_3)
+st.write(match_table_test)
+
+
+
