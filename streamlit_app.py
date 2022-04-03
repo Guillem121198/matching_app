@@ -2,8 +2,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import openpyxl
-
 
 # Pandas options
 pd.options.mode.chained_assignment = None
