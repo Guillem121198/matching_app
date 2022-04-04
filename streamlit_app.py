@@ -107,7 +107,9 @@ try:
   final_matching_ui = final_matching_df.sort_values(by='matching_score', ascending=False).head(10)
   final_matching_ui['matching_score'] = final_matching_ui['matching_score'].map(str)
   final_matching_ui['matching_score'] = final_matching_ui['matching_score'] + "%"
-  final_matching_v2 = final_matching_ui.rename(columns={"name": "Insta", "matching_score": "Score d'affinité"})
+  final_matching_v2 = final_matching_ui.rename(columns={"name": "Tes matchs", "matching_score": "Score d'affinité"})
+  final_matching_v2.reset_index(inplace=True)
+  final_matching_v2.index = final_matching_v2.index + 1
 
   # Displaying final dataframe
   st.write(final_matching_v2[["Insta","Score d'affinité"]].set_index('Insta'))
