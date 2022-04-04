@@ -115,7 +115,7 @@ try:
   st.markdown("Message pour inciter les gens à se contacter")
   
 except IndexError:
-  st.error("Pseudo introuvable, essayez avec ou sans le @, si le problème persiste, merci de contacter @yoyo_bdt")
+  st.error("Pseudo introuvable, n'oublie pas le '@' devant ton pseudo, si le problème persiste, merci de contacter @yoyobdt_")
 
 
 
