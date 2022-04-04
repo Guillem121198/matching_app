@@ -20,19 +20,12 @@ st.write(pd.DataFrame({
 }))
 
 # Python script
-url = 'https://raw.githubusercontent.com/Guillem121198/machine_learning/main/players_22.csv'
-players_22 = pd.read_csv(url, sep=',')
+url = 'https://raw.githubusercontent.com/Guillem121198/matching_app/main/yoyo_match_results_v4.csv'
+matching_table = pd.read_csv(url, sep=',')
 
-st.write(players_22)
+st.write(matching_table)
 
-url_3 = 'https://raw.githubusercontent.com/Guillem121198/matching_app/main/chicago_crimes.csv'
-crimes = pd.read_csv(url_3, sep=',')
 
-st.write(crimes)
-
-url_2 = 'https://raw.githubusercontent.com/Guillem121198/matching_app/main/yoyo_match_results.xlsx'
-match_table = pd.read_excel(url_2)
-st.write(match_table)
 
 
 
