@@ -22,7 +22,10 @@ matchs_df.columns = ['name', 'genre','yeux','cheveux','physique','mental','impor
 
 # Testing compatibilities
 
-input_data = matchs_df[matchs_df['name'] == input_name]
+try:
+  input_data = matchs_df[matchs_df['name'] == input_name]
+except IndexError:
+  print("Problem")
 
 
 new_matchs_df = matchs_df
