@@ -21,7 +21,11 @@ matchs_df = pd.read_csv(url, sep=',')
 matchs_df.columns = ['name', 'genre','yeux','cheveux','physique','mental','important','genre_r','yeux_r','cheveux_r','physique_r','mental_r','important_r','age','age_r','nb_crit_ok','nb_matchs']
 
 # Testing compatibilities
-input_data = matchs_df[matchs_df['name'] == input_name]
+
+try:
+  input_data = matchs_df[matchs_df['name'] == input_name]
+except:
+  print("Please enter a valid username")
 
 new_matchs_df = matchs_df
 new_matchs_df['genre_matching'] = 0
