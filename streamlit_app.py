@@ -47,7 +47,7 @@ for i in range(len(matchs_df['name'])):
         matchs_df['name_bis'][i] = ''
 
 matchs_df['name'] =  matchs_df['name_bis'] + matchs_df['name']
-matchs_df['name'] = matchs_df['name'].str.lower()
+# matchs_df['name'] = matchs_df['name'].str.lower()
 matchs_df = matchs_df.drop(columns=['name_bis'])
 
 # Testing compatibilities
