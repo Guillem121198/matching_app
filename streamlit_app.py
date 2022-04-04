@@ -112,7 +112,7 @@ try:
   final_matching_v2.index = final_matching_v2.index + 1
 
   # Displaying final dataframe
-  st.write(final_matching_v2[["Insta","Score d'affinité"]].set_index('Insta'))
+  st.write(final_matching_v2[["Tes matchs","Score d'affinité"]])
   
   st.markdown("C'est le moment de te jeter à l'eau ! Go slide dans les dm de tes matchs 😉")
   
