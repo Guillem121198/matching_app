@@ -85,7 +85,7 @@ try:
   st.write(final_matching_v2[["Insta","Score d'affinité"]])
   
 except IndexError:
-  st.error("Problem")
+  st.error("Pseudo introuvable, essayez avec ou sans le @, si le problème persiste, merci de contacter @yoyo_bdt")
 
 
 
