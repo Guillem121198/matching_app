@@ -84,7 +84,7 @@ try:
   # Displaying final dataframe
   st.write(final_matching_v2[["Insta","Score d'affinité"]].set_index('Insta')
   
-  st.write("Message pour inciter les gens à se contacter")
+  st.markdown("Message pour inciter les gens à se contacter")
   
 except IndexError:
   st.error("Pseudo introuvable, essayez avec ou sans le @, si le problème persiste, merci de contacter @yoyo_bdt")
