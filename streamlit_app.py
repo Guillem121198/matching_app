@@ -24,7 +24,7 @@ matchs_df.columns = ['name', 'genre','yeux','cheveux','physique','mental','impor
 
 try:
   input_data = matchs_df[matchs_df['name'] == input_name]
-except:
+except urllib.error.HTTPError:
   print("Please enter a valid username")
 
 new_matchs_df = matchs_df
