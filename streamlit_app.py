@@ -22,10 +22,8 @@ matchs_df.columns = ['name', 'genre','yeux','cheveux','physique','mental','impor
 
 # Testing compatibilities
 
-try:
-  input_data = matchs_df[matchs_df['name'] == input_name]
-except urllib.error.HTTPError:
-  print("Please enter a valid username")
+input_data = matchs_df[matchs_df['name'] == input_name]
+
 
 new_matchs_df = matchs_df
 new_matchs_df['genre_matching'] = 0
