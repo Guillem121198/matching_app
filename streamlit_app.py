@@ -10,7 +10,7 @@ pd.set_option("display.max_columns", None)
 # Streamlit UI/UX
 st.title("yoyomatch 2.0 ❤️")
 
-input_name = st.text_input('Ton compte insta avec le @', '@yoyobdt_')
+input_name = st.text_input('Ton compte insta en minuscules avec le @', '@yoyobdt_')
 
 
 # Reading csv file
@@ -47,6 +47,7 @@ for i in range(len(matchs_df['name'])):
         matchs_df['name_bis'][i] = ''
 
 matchs_df['name'] =  matchs_df['name_bis'] + matchs_df['name']
+matchs_df['name'] = matchs_df['name'].str.lower()
 matchs_df = matchs_df.drop(columns=['name_bis'])
 
 # Testing compatibilities
@@ -117,7 +118,7 @@ try:
   st.markdown("C'est le moment de te jeter à l'eau ! Go slide dans les dm de tes matchs 😏")
   
 except IndexError:
-  st.error("Pseudo introuvable, n'oublie pas le '@' devant ton pseudo, si le problème persiste, merci de contacter @yoyobdt_")
+  st.error("Pseudo introuvable, n'oublie pas le '@' devant ton pseudo ni de le mettre tout en minuscules, si le problème persiste, merci de contacter @yoyobdt_")
 
 
 
