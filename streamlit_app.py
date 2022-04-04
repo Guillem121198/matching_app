@@ -114,7 +114,7 @@ try:
   # Displaying final dataframe
   st.write(final_matching_v2[["Tes matchs","Score d'affinité"]])
   
-  st.markdown("C'est le moment de te jeter à l'eau ! Go slide dans les dm de tes matchs 😉")
+  st.markdown("C'est le moment de te jeter à l'eau ! Go slide dans les dm de tes matchs 😏")
   
 except IndexError:
   st.error("Pseudo introuvable, n'oublie pas le '@' devant ton pseudo, si le problème persiste, merci de contacter @yoyobdt_")
