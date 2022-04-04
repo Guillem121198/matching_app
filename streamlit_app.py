@@ -82,7 +82,7 @@ try:
   final_matching_v2 = final_matching_ui.rename(columns={"name": "Insta", "matching_score": "Score d'affinité"})
 
   # Displaying final dataframe
-  st.write(final_matching_v2[["Insta","Score d'affinité"]])
+  st.write(final_matching_v2[["Insta","Score d'affinité"]].set_index('Insta')
   
   st.write("Message pour inciter les gens à se contacter")
   
