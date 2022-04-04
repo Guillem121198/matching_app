@@ -8,9 +8,9 @@ pd.options.mode.chained_assignment = None
 pd.set_option("display.max_columns", None)
 
 # Streamlit UI/UX
-st.title("Yoyo matchs app")
+st.title("yoyomatch 2.0 ❤️")
 
-input_name = st.text_input('Ton compte insta avec le @', '@yoyo_bdt')
+input_name = st.text_input('Ton compte insta avec le @', '@yoyobdt_')
 
 
 # Reading csv file
@@ -76,13 +76,15 @@ try:
 
   # Reworking final dataframe
   final_matching_df = new_matchs_df[(new_matchs_df['genre_matching'] == 1) & (new_matchs_df['genre_matching_opp'] == 1)]
-  final_matching_ui = final_matching_df.sort_values(by='matching_score', ascending=False).head(5)
+  final_matching_ui = final_matching_df.sort_values(by='matching_score', ascending=False).head(10)
   final_matching_ui['matching_score'] = final_matching_ui['matching_score'].map(str)
   final_matching_ui['matching_score'] = final_matching_ui['matching_score'] + "%"
   final_matching_v2 = final_matching_ui.rename(columns={"name": "Insta", "matching_score": "Score d'affinité"})
 
   # Displaying final dataframe
   st.write(final_matching_v2[["Insta","Score d'affinité"]])
+  
+  st.write("Message pour inciter les gens à se contacter")
   
 except IndexError:
   st.error("Pseudo introuvable, essayez avec ou sans le @, si le problème persiste, merci de contacter @yoyo_bdt")
