@@ -14,7 +14,7 @@ input_name = st.text_input('Ton compte insta avec le @', '@yoyo_bdt')
 
 
 # Reading csv file
-url = 'https://raw.githubusercontent.com/Guillem121198/matching_app/main/yoyo_match_results_v4.csv'
+url = 'yoyo_match_results_v4.csv'
 matchs_df = pd.read_csv(url, sep=',')
 
 # Renaming columns
