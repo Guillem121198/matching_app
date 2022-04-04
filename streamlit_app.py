@@ -20,6 +20,24 @@ matchs_df = pd.read_csv(url, sep=',')
 # Renaming columns
 matchs_df.columns = ['name', 'genre','yeux','cheveux','physique','mental','important','genre_r','yeux_r','cheveux_r','physique_r','mental_r','important_r','age','age_r','nb_crit_ok','nb_matchs']
 
+# Cleaning spaces
+
+matchs_df['name'] = matchs_df['name'].str.strip()
+matchs_df['genre'] = matchs_df['genre'].str.strip()
+matchs_df['yeux'] = matchs_df['yeux'].str.strip()
+matchs_df['cheveux'] = matchs_df['cheveux'].str.strip()
+matchs_df['physique'] = matchs_df['physique'].str.strip()
+matchs_df['mental'] = matchs_df['mental'].str.strip()
+matchs_df['important'] = matchs_df['important'].str.strip()
+matchs_df['genre_r'] = matchs_df['genre_r'].str.strip()
+matchs_df['yeux_r'] = matchs_df['yeux_r'].str.strip()
+matchs_df['cheveux_r'] = matchs_df['cheveux_r'].str.strip()
+matchs_df['physique_r'] = matchs_df['physique_r'].str.strip()
+matchs_df['mental_r'] = matchs_df['mental_r'].str.strip()
+matchs_df['important_r'] = matchs_df['important_r'].str.strip()
+matchs_df['age'] = matchs_df['age'].str.strip()
+matchs_df['age_r'] = matchs_df['age_r'].str.strip()
+
 # Testing compatibilities
 
 try:
