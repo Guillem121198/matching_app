@@ -73,12 +73,17 @@ new_matchs_df['age_matching_opp'][matchs_df['age_r'] == input_data.iloc[0]['age'
 
 
 new_matchs_df['matching_score'] = new_matchs_df['yeux_matching'] + new_matchs_df['cheveux_matching'] + new_matchs_df['physique_matching'] + new_matchs_df['mental_matching'] + new_matchs_df['important_matching']+ new_matchs_df['age_matching'] + new_matchs_df['yeux_matching_opp'] + new_matchs_df['cheveux_matching_opp'] + new_matchs_df['physique_matching_opp'] + new_matchs_df['mental_matching_opp']+ new_matchs_df['important_matching_opp']+ new_matchs_df['age_matching_opp']
-
+new_matchs_df['matching_score'] = round(new_matchs_df['matching_score'] * 100/12, 1)
 
 
 final_matching_df = new_matchs_df[(new_matchs_df['genre_matching'] == 1) & (new_matchs_df['genre_matching_opp'] == 1)]
+final_matching_ui = final_matching_df.sort_values(by='matching_score', ascending=False).head(5)
+final_matching_ui['matching_score'] = final_matching_ui['matching_score'].map(str)
+final_matching_ui['matching_score'] = final_matching_ui['matching_score'] + "%"
+final_matching_v2 = final_matching_ui.rename(columns={"name": "Insta", "matching_score": "Score d'affinité"})
 
-st.write(final_matching_df.sort_values(by='matching_score', ascending=False).head(5))
+
+st.write(final_matching_v2[["Insta","Score d'affinité"]])
 
 
 
