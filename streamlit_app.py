@@ -1,5 +1,4 @@
 # Imports 
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -8,23 +7,20 @@ import numpy as np
 pd.options.mode.chained_assignment = None
 pd.set_option("display.max_columns", None)
 
-# Streamlit
+# Streamlit UI/UX
 st.title("Yoyo matchs app")
 
 input_name = st.text_input('Ton compte insta avec le @', '@yoyo_bdt')
 
-st.write("Here's our first attempt at using data to create a table:")
-st.write(pd.DataFrame({
-    'first column': [1, 2, 3, 4],
-    'second column': [10, 20, 30, 40]
-}))
 
-# Python script
+# Reading csv file
 url = 'https://raw.githubusercontent.com/Guillem121198/matching_app/main/yoyo_match_results_v4.csv'
 matchs_df = pd.read_csv(url, sep=',')
 
+# Renaming columns
 matchs_df.columns = ['name', 'genre','yeux','cheveux','physique','mental','important','genre_r','yeux_r','cheveux_r','physique_r','mental_r','important_r','age','age_r','nb_crit_ok','nb_matchs']
 
+# Testing compatibilities
 input_data = matchs_df[matchs_df['name'] == input_name]
 
 new_matchs_df = matchs_df
@@ -70,19 +66,18 @@ new_matchs_df['important_matching_opp'][matchs_df['important_r'] == input_data.i
 new_matchs_df['age_matching_opp'] = 0
 new_matchs_df['age_matching_opp'][matchs_df['age_r'] == input_data.iloc[0]['age']] = 1
 
-
-
+# Matching score computation
 new_matchs_df['matching_score'] = new_matchs_df['yeux_matching'] + new_matchs_df['cheveux_matching'] + new_matchs_df['physique_matching'] + new_matchs_df['mental_matching'] + new_matchs_df['important_matching']+ new_matchs_df['age_matching'] + new_matchs_df['yeux_matching_opp'] + new_matchs_df['cheveux_matching_opp'] + new_matchs_df['physique_matching_opp'] + new_matchs_df['mental_matching_opp']+ new_matchs_df['important_matching_opp']+ new_matchs_df['age_matching_opp']
 new_matchs_df['matching_score'] = round(new_matchs_df['matching_score'] * 100/12, 1)
 
-
+# Reworking final dataframe
 final_matching_df = new_matchs_df[(new_matchs_df['genre_matching'] == 1) & (new_matchs_df['genre_matching_opp'] == 1)]
 final_matching_ui = final_matching_df.sort_values(by='matching_score', ascending=False).head(5)
 final_matching_ui['matching_score'] = final_matching_ui['matching_score'].map(str)
 final_matching_ui['matching_score'] = final_matching_ui['matching_score'] + "%"
 final_matching_v2 = final_matching_ui.rename(columns={"name": "Insta", "matching_score": "Score d'affinité"})
 
-
+# Displaying final dataframe
 st.write(final_matching_v2[["Insta","Score d'affinité"]])
 
 
