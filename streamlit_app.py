@@ -38,8 +38,18 @@ matchs_df['important_r'] = matchs_df['important_r'].str.strip()
 matchs_df['age'] = matchs_df['age'].str.strip()
 matchs_df['age_r'] = matchs_df['age_r'].str.strip()
 
-# Testing compatibilities
+# Filling missing '@'
+matchs_df['name_bis'] = ''
+for i in range(len(matchs_df['name'])):
+    if matchs_df['name'][i][0] != '@':
+        matchs_df['name_bis'][i] = '@'
+    else:
+        matchs_df['name_bis'][i] = ''
 
+matchs_df['name'] =  matchs_df['name_bis'] + matchs_df['name']
+matchs_df = matchs_df.drop(columns=['name_bis'])
+
+# Testing compatibilities
 try:
   input_data = matchs_df[matchs_df['name'] == input_name]
 
