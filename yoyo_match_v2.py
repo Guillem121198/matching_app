@@ -14,7 +14,7 @@ input_name = st.text_input('Ton compte insta en minuscules avec le @', '@')
 
 
 # Reading csv file
-url = 'extract_v2.csv.csv'
+url = 'extract_v2.csv'
 matchs_df = pd.read_csv(url, sep=',')
 
 # Renaming columns
