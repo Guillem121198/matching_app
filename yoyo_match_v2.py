@@ -14,7 +14,7 @@ input_name = st.text_input('Ton compte insta en minuscules avec le @', '@')
 
 
 # Reading csv file
-url = 'extract_v2.csv'
+url = 'extract_v4.csv'
 matchs_df = pd.read_csv(url, sep=',')
 
 # Renaming columns
@@ -124,7 +124,7 @@ try:
 
   # Matching score computation
   new_matchs_df['matching_score'] = new_matchs_df['country_matching'] + new_matchs_df['region_matching'] + new_matchs_df['couple_type_matching'] + new_matchs_df['couple_goal_matching'] + new_matchs_df['life_type_matching']+ new_matchs_df['first_date_matching'] + new_matchs_df['song_matching'] + new_matchs_df['couple_rythm_matching'] + new_matchs_df['place_matching'] + new_matchs_df['asset_matching']+ new_matchs_df['asset_matching_opp']+ new_matchs_df['life_type_matching_opp']
-  new_matchs_df['matching_score'] = round(new_matchs_df['matching_score'] * 100/12, 1)
+  new_matchs_df['matching_score'] = round(((new_matchs_df['matching_score'] * 100/12) + 100)/200, 1)
 
   # Reworking final dataframe
   final_matching_df = new_matchs_df[(new_matchs_df['genre_matching'] == 1) & (new_matchs_df['genre_matching_opp'] == 1) & (new_matchs_df['age_matching_opp'] == 1) & (new_matchs_df['age_matching'] == 1)]
