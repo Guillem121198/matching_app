@@ -42,6 +42,10 @@ matchs_df['asset_r'] = matchs_df['asset_r'].str.strip()
 matchs_df['mail'] = matchs_df['mail'].str.strip()
 matchs_df['pay_date'] = matchs_df['pay_date'].str.strip()
 
+# Removing duplicates
+matchs_df = matchs_df[-matchs_df.duplicated(subset=['name'], keep='last')]
+matchs_df = matchs_df.reset_index(drop=True)
+
 # Filling missing '@'
 matchs_df['name_bis'] = ''
 for i in range(len(matchs_df['name'])):
