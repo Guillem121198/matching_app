@@ -47,6 +47,7 @@ matchs_df = matchs_df.drop([1])
 matchs_df = matchs_df[-matchs_df.duplicated(subset=['name'], keep='last')]
 matchs_df = matchs_df.reset_index(drop=True)
 matchs_df.at[564, 'age_r'] = '45+ ans'
+matchs_df.at[745, 'name'] = '@martindsh_'
 
 
 # Filling missing '@'
