@@ -14,7 +14,7 @@ input_name = st.text_input('Ton compte insta en minuscules avec le @', '@')
 
 
 # Reading csv file
-url = 'extract_v4.csv'
+url = 'extract_v3.csv'
 matchs_df = pd.read_csv(url, sep=',')
 
 # Renaming columns
@@ -42,7 +42,8 @@ matchs_df['asset_r'] = matchs_df['asset_r'].str.strip()
 matchs_df['mail'] = matchs_df['mail'].str.strip()
 matchs_df['pay_date'] = matchs_df['pay_date'].str.strip()
 
-# Removing duplicates
+# Drop Yoyo & removing duplicates
+matchs_df = matchs_df.drop([1])
 matchs_df = matchs_df[-matchs_df.duplicated(subset=['name'], keep='last')]
 matchs_df = matchs_df.reset_index(drop=True)
 
