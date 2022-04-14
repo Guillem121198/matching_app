@@ -130,8 +130,15 @@ try:
   new_matchs_df['matching_score'] = new_matchs_df['country_matching'] + new_matchs_df['region_matching'] + new_matchs_df['couple_type_matching'] + new_matchs_df['couple_goal_matching'] + new_matchs_df['life_type_matching']+ new_matchs_df['first_date_matching'] + new_matchs_df['song_matching'] + new_matchs_df['couple_rythm_matching'] + new_matchs_df['place_matching'] + new_matchs_df['asset_matching']+ new_matchs_df['asset_matching_opp']+ new_matchs_df['life_type_matching_opp']
   new_matchs_df['matching_score'] = round((((new_matchs_df['matching_score'] * 100/12)+100)/200)*100, 1)
 
+
+  # Same genre fix
+  if input_data.iloc[0]['genre'] == input_data.iloc[0]['genre_r']:
+    final_matching_df = new_matchs_df[(new_matchs_df['genre_matching'] == 1) & (new_matchs_df['genre_matching_opp'] == 1) & (new_matchs_df['name'] != input_name)]
+  else:
+    final_matching_df = new_matchs_df[(new_matchs_df['genre_matching'] == 1) & (new_matchs_df['genre_matching_opp'] == 1) & (new_matchs_df['age_matching_opp'] == 1) & (new_matchs_df['age_matching'] == 1)] 
+  
   # Reworking final dataframe
-  final_matching_df = new_matchs_df[(new_matchs_df['genre_matching'] == 1) & (new_matchs_df['genre_matching_opp'] == 1) & (new_matchs_df['age_matching_opp'] == 1) & (new_matchs_df['age_matching'] == 1)]
+  #final_matching_df = new_matchs_df[(new_matchs_df['genre_matching'] == 1) & (new_matchs_df['genre_matching_opp'] == 1) & (new_matchs_df['age_matching_opp'] == 1) & (new_matchs_df['age_matching'] == 1)]
   final_matching_ui = final_matching_df.sort_values(by='matching_score', ascending=False).head(10)
   final_matching_ui['matching_score'] = final_matching_ui['matching_score'].map(str)
   final_matching_ui['matching_score'] = final_matching_ui['matching_score'] + "%"
