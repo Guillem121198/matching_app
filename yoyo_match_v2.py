@@ -51,6 +51,7 @@ matchs_df = matchs_df.reset_index(drop=True)
 matchs_df.at[564, 'age_r'] = '45+ ans'
 matchs_df.at[745, 'name'] = '@martindsh_'
 matchs_df.at[482, 'age'] = '30-35 ans'
+matchs_df.at[645, 'age'] = '30-35 ans'
 
 
 # Filling missing '@'
