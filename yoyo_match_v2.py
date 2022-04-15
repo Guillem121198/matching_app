@@ -55,6 +55,8 @@ matchs_df.at[645, 'age'] = '30-35 ans'
 matchs_df.at[185, 'age_r'] = '22-24 ans'
 matchs_df.at[667, 'age_r'] = '22-24 ans'
 matchs_df.at[640, 'age_r'] = '18-21 ans'
+matchs_df.at[137, 'age'] = '30-35 ans'
+matchs_df.at[137, 'age_r'] = '30-35 ans'
 
 
 # Filling missing '@'
