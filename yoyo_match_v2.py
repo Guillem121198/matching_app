@@ -46,8 +46,11 @@ matchs_df['pay_date'] = matchs_df['pay_date'].str.strip()
 matchs_df = matchs_df.drop([1])
 matchs_df = matchs_df[-matchs_df.duplicated(subset=['name'], keep='last')]
 matchs_df = matchs_df.reset_index(drop=True)
+
+# Edits
 matchs_df.at[564, 'age_r'] = '45+ ans'
 matchs_df.at[745, 'name'] = '@martindsh_'
+matchs_df.at[482, 'age'] = '30-35 ans'
 
 
 # Filling missing '@'
