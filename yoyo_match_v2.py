@@ -10,7 +10,7 @@ pd.set_option("display.max_columns", None)
 # Streamlit UI/UX
 st.title("yoyomatch 2.0 ❤️")
 
-input_name = st.text_input('Ton compte insta en minuscules avec le @', '@')
+input_name = st.text_input('Ton compte instas en minuscules avec le @', '@')
 
 
 # Reading csv file
